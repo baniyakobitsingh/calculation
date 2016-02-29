@@ -1,0 +1,274 @@
+
+
+class Calculation
+
+​
+
+  def areaCricle(radius)
+
+​
+
+    puts "\nThe Area of Circle Is #{Math::PI*(radius**2)}.\n"
+
+​
+
+  end
+
+​
+
+  def areaSquare(length)
+
+​
+
+    area=length**2
+
+    puts "\nThe Area of Square Is #{area}.\n"
+
+​
+
+  end
+
+​
+
+  def areaRectangle(length,breadth)
+
+​
+
+    area=length*breadth
+
+    puts "\nThe Area of Rectangle Is #{area}.\n"
+
+​
+
+  end
+
+​
+
+  def areaTriangle(height,base)
+
+​
+
+    area=0.5*(height*base)
+
+    puts "\nThe Area of Triangle Is #{area.to_i}.\n"
+
+​
+
+  end
+
+​
+
+end
+
+​
+
+​
+
+​
+
+​
+
+​
+
+class Calculator < Calculation
+
+​
+
+​
+
+​
+
+  def initialize
+
+​
+
+​
+
+    puts "\n*************************************************************************************************************"
+
+    puts "Please Type In The Option For Your Desired Calculation \n 
+    1 -> Circle \n 
+    2 -> Square \n 
+    3 -> Rectangle \n 
+    4 -> Triangle \n 
+    q -> Quit\n\n"
+
+    puts "*************************************************************************************************************\n\n"
+
+    type=gets.chomp
+
+    gettype(type)
+
+​
+
+  end
+
+​
+
+​
+
+​
+
+  def gettype(type)
+
+​
+
+    case type.upcase
+
+​
+
+      when "1"
+
+​
+
+        puts "\nPlease Enter The Radius of The Circle.\n"
+
+        radius=gets.chomp.to_i
+
+        areaCricle(radius)
+
+        continue
+
+​
+
+      when "2"
+
+​
+
+        puts "\nPlease Enter The Length of The Square.\n"
+
+        length=gets.chomp.to_i
+
+        areaSquare(length)
+
+        continue
+
+​
+
+      when "3"
+
+​
+
+        puts "\nPlease Enter The Dimension of The Rectangle In The Format (Length,Breadth).\n"
+
+        dimension=gets.chomp.split(/\s*,\s*/)
+
+        if dimension.count > 2
+
+          puts "\nInvalid Dimension\n"
+
+          initialize
+
+        else
+
+          length, breadth= dimension
+
+          areaRectangle(length.to_i,breadth.to_i)
+
+          continue
+
+        end
+
+​
+
+      when "4"
+
+​
+
+        puts "\nPlease Enter The Length of Base of The Triangle.\n"
+
+        base=gets.chomp.to_i
+
+        puts "\nPlease Enter The Height of The Triangle.\n"
+
+        height=gets.chomp.to_i
+
+        areaTriangle(height,base)
+
+        continue
+
+​
+
+      when "Q"
+
+        puts "\nThank You For Using The Area Calculation Program."
+
+​
+
+      else
+
+        puts "\nInvalid Command. Please Try Again.\n"
+
+        initialize
+
+    end
+
+​
+
+  end
+
+​
+
+​
+
+​
+
+  def continue
+
+​
+
+    puts "\nDo You Wish To Continue Calculating Areas If Yes Please Press Y Else Just Press Any Other Key"
+
+    againCalc=gets.chomp.upcase
+
+    if againCalc == "Y"
+
+      initialize
+
+    else
+
+      puts "\nThank You For Using The Area Calculation Program."
+
+    end
+
+​
+
+  end
+
+​
+
+​
+
+end
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+
+​
+
+​
+
+userCalc=UserCalculator.new
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
